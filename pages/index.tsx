@@ -78,7 +78,7 @@ export const Home: NextPage = () => {
             </p>
           </a>
         </div>
-        <button onClick={createDoctor}>Create Doctor</button>
+        <button onClick={() => createDoctor()}>Create Doctor</button>
       </main>
 
       <footer className={styles.footer}>
