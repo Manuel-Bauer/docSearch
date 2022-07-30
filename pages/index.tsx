@@ -2,8 +2,33 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
+import { useState } from 'react';
+// import { createDoctor } from '../utils/apiService/doctorUtil';
 
-const Home: NextPage = () => {
+export const Home: NextPage = () => {
+  const [doctor, setDoctor] = useState({
+    firstName: 'Paul',
+    lastName: 'The grand healer',
+    email: 'paulthegrand@stmedical.com',
+    city: 'Berlin',
+    facility: 'Charité Universitätsmedizin Berlin',
+    areaOfExpertise: 'Allergy and Immunology',
+  });
+
+  async function createDoctor() {
+    const res = await fetch('api/doctor', {
+      method: 'POST',
+      body: JSON.stringify(doctor),
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+    });
+    console.log('createDoc', res);
+    const data = await res.json();
+    return data;
+  }
+
   return (
     <div className={styles.container}>
       <Head>
@@ -53,6 +78,7 @@ const Home: NextPage = () => {
             </p>
           </a>
         </div>
+        <button onClick={createDoctor}>Create Doctor</button>
       </main>
 
       <footer className={styles.footer}>

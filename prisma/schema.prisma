@@ -10,12 +10,13 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model doctor {
+model Doctor {
   id              Int      @id @default(autoincrement())
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
   firstName       String
   lastName        String
+  email           String
   city            String
   areaOfExpertise String
   facility        String
