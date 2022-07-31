@@ -7,12 +7,12 @@ import { useState } from 'react';
 
 export const Home: NextPage = () => {
   const [doctor, setDoctor] = useState({
-    firstName: 'Paul',
-    lastName: 'The grand healer',
-    email: 'paulthegrand@stmedical.com',
-    city: 'Berlin',
-    facility: 'Charité Universitätsmedizin Berlin',
-    areaOfExpertise: 'Allergy and Immunology',
+    firstName: 'Tobias',
+    lastName: 'Stöhr',
+    email: 'tobiasstöhr@gmail.com',
+    city: 'München',
+    facility: 'TUM Universitätsklinikum',
+    areaOfExpertise: 'Colon and Rectal Surgery',
   });
 
   async function createDoctor() {
