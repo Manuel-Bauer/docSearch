@@ -73,6 +73,15 @@ const CreateDocForm: React.FunctionComponent<ICreateDocFormProps> = (props) => {
           props.setError('');
         }}
       ></input>
+      <input
+        type='text'
+        placeholder='Area Of Expertise'
+        value={props.inputState.firstName}
+        onChange={(e) => {
+          props.setAreaOfExpertise(e.target.value as TAreaOfExpertise);
+          props.setError('');
+        }}
+      ></input>
     </div>
   );
 };
