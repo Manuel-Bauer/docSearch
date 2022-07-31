@@ -1,8 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { Prisma, Doctor } from '@prisma/client';
 import { PrismaClient } from '@prisma/client';
 
-// import { prisma } from '../../db';
 const prisma = new PrismaClient();
 
 export default async function handler(

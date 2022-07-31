@@ -16,7 +16,7 @@ model Doctor {
   updatedAt       DateTime @updatedAt
   firstName       String
   lastName        String
-  email           String
+  email           String   @unique
   city            String
   areaOfExpertise String
   facility        String

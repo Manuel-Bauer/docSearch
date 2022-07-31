@@ -11,5 +11,3 @@ export async function createDoctor(
   const data = await res.json();
   return data;
 }
-
-//t
