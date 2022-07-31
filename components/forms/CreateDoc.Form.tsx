@@ -2,6 +2,7 @@ import { Doctor } from '@prisma/client';
 import React, { Dispatch, SetStateAction } from 'react';
 import { checkServerIdentity } from 'tls';
 import { TAreaOfExpertise } from '../../utils/types/AreaOfExpertise.Type';
+import { Button } from '../buttons/Button';
 
 interface IInputState {
   firstName: string;
@@ -24,6 +25,15 @@ interface ICreateDocFormProps {
   error: string;
   isLoading: boolean;
 }
+
+// For Select Dropdown
+const areaOfExpertise = [
+  'Allergy and Immunology',
+  'Anesthesiology',
+  'Colon and Rectal Surgery',
+  'Dermatology',
+  'Emergency Medicine',
+];
 
 const CreateDocForm: React.FunctionComponent<ICreateDocFormProps> = (props) => {
   return (
@@ -64,33 +74,23 @@ const CreateDocForm: React.FunctionComponent<ICreateDocFormProps> = (props) => {
           props.setError('');
         }}
       ></input>
-      <input
-        type='text'
-        placeholder='Area Of Expertise'
-        value={props.inputState.firstName}
+      <select
+        value={props.inputState.areaOfExpertise}
         onChange={(e) => {
           props.setAreaOfExpertise(e.target.value as TAreaOfExpertise);
           props.setError('');
         }}
-      ></input>
-      <input
-        type='text'
-        placeholder='Area Of Expertise'
-        value={props.inputState.firstName}
-        onChange={(e) => {
-          props.setAreaOfExpertise(e.target.value as TAreaOfExpertise);
-          props.setError('');
-        }}
-      ></input>
-      <input
-        type='text'
-        placeholder='Area Of Expertise'
-        value={props.inputState.firstName}
-        onChange={(e) => {
-          props.setAreaOfExpertise(e.target.value as TAreaOfExpertise);
-          props.setError('');
-        }}
-      ></input>
+      >
+        {areaOfExpertise.map((area) => {
+          <option value={area}>{area}</option>;
+        })}
+      </select>
+      <Button
+        text='Add doctor'
+        variant='primary'
+        disabled={props.isLoading}
+        callback={props.handleSubmit}
+      ></Button>
     </div>
   );
 };
