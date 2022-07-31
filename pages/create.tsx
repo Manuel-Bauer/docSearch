@@ -10,11 +10,10 @@ export const Create: NextPage = () => {
   const [lastName, setLastName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [city, setCity] = useState<string>('');
+  const [facility, setFacility] = useState<string>('');
   const [areaOfExpertise, setAreaOfExpertise] = useState<TAreaOfExpertise>(
     'Allergy and Immunology'
   );
-
-  const [facility, setFacility] = useState<string>('');
 
   /* ERROR STATES */
   const [createError, setCreateError] = useState<string>('');
@@ -35,6 +34,12 @@ export const Create: NextPage = () => {
         facility,
       });
       setCreateLoading(false);
+      setFirstName('');
+      setLastName('');
+      setEmail('');
+      setCity('');
+      setFacility('');
+      setAreaOfExpertise('Allergy and Immunology');
     } catch (err) {
       console.log(err);
       setCreateLoading(false);
@@ -58,6 +63,7 @@ export const Create: NextPage = () => {
         setEmail={setEmail}
         setCity={setCity}
         setAreaOfExpertise={setAreaOfExpertise}
+        setFacility={setFacility}
         handleSubmit={handleSubmit}
         error={createError}
         setError={setCreateError}

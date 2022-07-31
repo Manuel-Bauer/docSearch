@@ -2,7 +2,7 @@ import { Doctor } from '@prisma/client';
 import React, { Dispatch, SetStateAction } from 'react';
 import { checkServerIdentity } from 'tls';
 import { TAreaOfExpertise } from '../../utils/types/AreaOfExpertise.Type';
-import { Button } from '../buttons/Button';
+import Button from '../buttons/Button';
 
 interface IInputState {
   firstName: string;
@@ -19,6 +19,7 @@ interface ICreateDocFormProps {
   setLastName: Dispatch<SetStateAction<string>>;
   setEmail: Dispatch<SetStateAction<string>>;
   setCity: Dispatch<SetStateAction<string>>;
+  setFacility: Dispatch<SetStateAction<string>>;
   setAreaOfExpertise: Dispatch<SetStateAction<TAreaOfExpertise>>;
   handleSubmit: () => Promise<void>;
   setError: Dispatch<SetStateAction<string>>;
@@ -74,6 +75,15 @@ const CreateDocForm: React.FunctionComponent<ICreateDocFormProps> = (props) => {
           props.setError('');
         }}
       ></input>
+      <input
+        type='text'
+        placeholder='Facility'
+        value={props.inputState.facility}
+        onChange={(e) => {
+          props.setFacility(e.target.value as string);
+          props.setError('');
+        }}
+      ></input>
       <select
         value={props.inputState.areaOfExpertise}
         onChange={(e) => {
@@ -82,12 +92,11 @@ const CreateDocForm: React.FunctionComponent<ICreateDocFormProps> = (props) => {
         }}
       >
         {areaOfExpertise.map((area) => {
-          <option value={area}>{area}</option>;
+          return <option value={area}>{area}</option>;
         })}
       </select>
       <Button
         text='Add doctor'
-        variant='primary'
         disabled={props.isLoading}
         callback={props.handleSubmit}
       ></Button>

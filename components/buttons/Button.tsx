@@ -1,7 +1,6 @@
 import React from 'react';
 
 interface IButtonProps {
-  variant: 'primary | secondary';
   callback: () => any;
   text: string;
   disabled: boolean;
