@@ -9,6 +9,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  await prisma.$connect();
   console.log('req.body', req.body);
   if (req.method === 'POST') {
     const doctor = req.body;
