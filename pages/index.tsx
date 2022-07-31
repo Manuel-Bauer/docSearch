@@ -31,7 +31,7 @@ export const Home: NextPage = () => {
 
   return (
     <div>
-      <Link href='/create'>Add new doctor</Link>
+      <Link href='/create'>Add New Doctor</Link>
     </div>
   );
 };
