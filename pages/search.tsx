@@ -3,12 +3,17 @@ import type { TAreaOfExpertise } from '../utils/types/AreaOfExpertise.Type';
 import { useState } from 'react';
 import { getDoctors } from '../utils/apiService/doctorApi';
 import SearchDocForm from '../components/forms/SearchDoc.Form.Comp';
+import { Prisma, Doctor } from '@prisma/client';
+import DoctorList from '../components/lists/Doctor.List';
 
 const Search: NextPage = () => {
   /* INPUT STATES */
   const [city, setCity] = useState<string>('');
   const [facility, setFacility] = useState<string>('');
   const [areaOfExpertise, setAreaOfExpertise] = useState<TAreaOfExpertise>('');
+
+  /* OUTPUT STATES */
+  const [doctors, setDoctors] = useState<Doctor[] | null>(null);
 
   /* ERROR STATES */
   const [searchError, setSearchError] = useState<string>('');
@@ -20,11 +25,12 @@ const Search: NextPage = () => {
   async function handleSubmit() {
     setSearchLoading(true);
     try {
-      await getDoctors({
+      const doctors = await getDoctors({
         city,
         facility,
         areaOfExpertise,
       });
+      setDoctors(doctors);
       setSearchLoading(false);
       setCity('');
       setFacility('');
@@ -36,7 +42,6 @@ const Search: NextPage = () => {
     }
   }
 
-  const searchForm = () => {};
   return (
     <>
       <SearchDocForm
@@ -49,7 +54,7 @@ const Search: NextPage = () => {
         error={searchError}
         isLoading={searchLoading}
       ></SearchDocForm>
-      <div>DoctorList</div>
+      <DoctorList doctors={doctors}></DoctorList>
     </>
   );
 };

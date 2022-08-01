@@ -25,7 +25,6 @@ export default async function handler(
     }
 
     const getDoctors = await prisma.doctor.findMany(filter);
-    console.log(getDoctors);
     return res.status(200).json(getDoctors);
   }
 }
