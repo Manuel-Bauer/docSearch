@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 import type { TAreaOfExpertise } from '../utils/types/AreaOfExpertise.Type';
 import { useState } from 'react';
-import { getDoctors } from '../utils/apiService/doctorApi';
+import { getDoctors, deleteDoctor } from '../utils/apiService/doctorApi';
 import SearchDocForm from '../components/forms/SearchDoc.Form';
 import Header from '../components/structure/Header';
 import { Doctor } from '@prisma/client';
@@ -14,7 +14,7 @@ const Search: NextPage = () => {
   const [areaOfExpertise, setAreaOfExpertise] = useState<TAreaOfExpertise>('');
 
   /* OUTPUT STATES */
-  const [doctors, setDoctors] = useState<Doctor[] | null>(null);
+  const [doctors, setDoctors] = useState<Doctor[] | undefined>(undefined);
 
   /* ERROR STATES */
   const [searchError, setSearchError] = useState<string>('');
@@ -43,6 +43,19 @@ const Search: NextPage = () => {
     }
   }
 
+  /* DELETE DOCTOR HANDLING */
+  async function handleDelete(id: string) {
+    try {
+      const deletedDoctor = await deleteDoctor(id);
+      // Filter out deleted doctor
+      setDoctors((prev) => {
+        return prev?.filter((doctor) => doctor.id !== deletedDoctor.id);
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   return (
     <>
       <SearchDocForm
@@ -55,7 +68,7 @@ const Search: NextPage = () => {
         error={searchError}
         isLoading={searchLoading}
       ></SearchDocForm>
-      <DoctorList doctors={doctors}></DoctorList>
+      <DoctorList doctors={doctors} handleDelete={handleDelete}></DoctorList>
     </>
   );
 };

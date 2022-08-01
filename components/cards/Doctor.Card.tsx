@@ -1,38 +1,30 @@
 import React from 'react';
 import { Doctor } from '@prisma/client';
 import { TiDeleteOutline } from 'react-icons/ti';
-import { deleteDoctor } from '../../utils/apiService/doctorApi';
 
 interface IDoctorCardProps {
   doctor: Doctor;
+  handleDelete: (id: string) => Promise<Doctor>;
 }
 
-const DoctorCard: React.FunctionComponent<IDoctorCardProps> = ({ doctor }) => {
-  async function handleDelete() {
-    try {
-      await deleteDoctor(doctor.id);
-    } catch (err) {
-      console.log(err);
-    }
-  }
-
+const DoctorCard: React.FunctionComponent<IDoctorCardProps> = (props) => {
   return (
     <>
       <div className='relative space-y-1 bg-slate-200 p-4 rounded-md shadow-md'>
         <div>
           <TiDeleteOutline
             className='absolute right-2 top-2'
-            onClick={() => handleDelete()}
+            onClick={() => props.handleDelete(props.doctor.id)}
           ></TiDeleteOutline>
         </div>
         <div className='text-xl font-bold'>
-          {doctor.firstName} {doctor.lastName}
+          {props.doctor.firstName} {props.doctor.lastName}
         </div>
-        <div className='text-sm italic'>{doctor.email}</div>
+        <div className='text-sm italic'>{props.doctor.email}</div>
         <div>
-          {doctor.city} - {doctor.facility}
+          {props.doctor.city} - {props.doctor.facility}
         </div>
-        <div>{doctor.areaOfExpertise}</div>
+        <div>{props.doctor.areaOfExpertise}</div>
       </div>
     </>
   );
