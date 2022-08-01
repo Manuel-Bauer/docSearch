@@ -21,7 +21,7 @@ interface ICreateDocFormProps {
   setAreaOfExpertise: Dispatch<SetStateAction<TAreaOfExpertise>>;
   handleSubmit: () => Promise<void>;
   setError: Dispatch<SetStateAction<string>>;
-  error: string;
+  setSuccess: Dispatch<SetStateAction<string>>;
   isLoading: boolean;
 }
 
@@ -45,6 +45,7 @@ const CreateDocForm: React.FunctionComponent<ICreateDocFormProps> = (props) => {
         onChange={(e) => {
           props.setFirstName(e.target.value as string);
           props.setError('');
+          props.setSuccess('');
         }}
       ></input>
       <input
@@ -55,6 +56,7 @@ const CreateDocForm: React.FunctionComponent<ICreateDocFormProps> = (props) => {
         onChange={(e) => {
           props.setLastName(e.target.value as string);
           props.setError('');
+          props.setSuccess('');
         }}
       ></input>
       <input
@@ -65,6 +67,7 @@ const CreateDocForm: React.FunctionComponent<ICreateDocFormProps> = (props) => {
         onChange={(e) => {
           props.setEmail(e.target.value as string);
           props.setError('');
+          props.setSuccess('');
         }}
       ></input>
       <input
@@ -75,6 +78,7 @@ const CreateDocForm: React.FunctionComponent<ICreateDocFormProps> = (props) => {
         onChange={(e) => {
           props.setCity(e.target.value as string);
           props.setError('');
+          props.setSuccess('');
         }}
       ></input>
       <input
@@ -85,6 +89,7 @@ const CreateDocForm: React.FunctionComponent<ICreateDocFormProps> = (props) => {
         onChange={(e) => {
           props.setFacility(e.target.value as string);
           props.setError('');
+          props.setSuccess('');
         }}
       ></input>
       <select
@@ -93,6 +98,7 @@ const CreateDocForm: React.FunctionComponent<ICreateDocFormProps> = (props) => {
         onChange={(e) => {
           props.setAreaOfExpertise(e.target.value as TAreaOfExpertise);
           props.setError('');
+          props.setSuccess('');
         }}
       >
         {areaOfExpertise.map((area) => {

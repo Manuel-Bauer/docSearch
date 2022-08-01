@@ -16,8 +16,9 @@ const Create: NextPage = () => {
     'Allergy and Immunology'
   );
 
-  /* ERROR STATES */
+  /* USER FEEDBACK STATES */
   const [createError, setCreateError] = useState<string>('');
+  const [createSuccess, setCreateSuccess] = useState<string>('');
 
   /* LOADING STATES */
   const [createLoading, setCreateLoading] = useState<boolean>(false);
@@ -41,6 +42,7 @@ const Create: NextPage = () => {
       setCity('');
       setFacility('');
       setAreaOfExpertise('Allergy and Immunology');
+      setCreateSuccess('Doctor added successfully!');
     } catch (err) {
       console.log(err);
       setCreateLoading(false);
@@ -67,10 +69,11 @@ const Create: NextPage = () => {
         setAreaOfExpertise={setAreaOfExpertise}
         setFacility={setFacility}
         handleSubmit={handleSubmit}
-        error={createError}
         setError={setCreateError}
+        setSuccess={setCreateSuccess}
         isLoading={createLoading}
       ></CreateDocForm>
+      <div className='text-recunited font-bold px-5'>{createSuccess}</div>
     </div>
   );
 };
