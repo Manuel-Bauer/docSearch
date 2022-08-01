@@ -1,5 +1,6 @@
 import { NextPage } from 'next';
 import CreateDocForm from '../components/forms/CreateDoc.Form';
+import Header from '../components/structure/Header';
 import { useState } from 'react';
 import { createDoctor } from '../utils/apiService/doctorApi';
 import { TAreaOfExpertise } from '../utils/types/AreaOfExpertise.Type';
@@ -49,6 +50,7 @@ const Create: NextPage = () => {
 
   return (
     <div>
+      <Header text='DOCUNITED'></Header>
       <CreateDocForm
         inputState={{
           firstName,

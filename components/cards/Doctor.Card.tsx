@@ -4,7 +4,7 @@ import { TiDeleteOutline } from 'react-icons/ti';
 
 interface IDoctorCardProps {
   doctor: Doctor;
-  handleDelete: (id: string) => Promise<Doctor>;
+  handleDelete: (id: string) => Promise<void>;
 }
 
 const DoctorCard: React.FunctionComponent<IDoctorCardProps> = (props) => {

@@ -33,7 +33,6 @@ const areaOfExpertise = [
 const SearchDocForm: React.FunctionComponent<ISearchDocFormProps> = (props) => {
   return (
     <>
-      <Header text='DOCUNITED'></Header>
       <div className='flex-row p-4 space-y-2'>
         <input
           className='w-full border border-black rounded-md py-1 px-2'

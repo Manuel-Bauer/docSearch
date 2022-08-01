@@ -4,7 +4,7 @@ import DoctorCard from '../cards/Doctor.Card';
 
 interface IDoctorListProps {
   doctors: Doctor[] | null;
-  handleDelete: (id: string) => Promise<Doctor>;
+  handleDelete: (id: string) => Promise<void>;
 }
 
 const DoctorList: React.FunctionComponent<IDoctorListProps> = (props) => {

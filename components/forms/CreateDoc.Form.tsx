@@ -36,8 +36,9 @@ const areaOfExpertise = [
 
 const CreateDocForm: React.FunctionComponent<ICreateDocFormProps> = (props) => {
   return (
-    <div>
+    <div className='flex-row p-4 space-y-2'>
       <input
+        className='w-full border border-black rounded-md py-1 px-2'
         type='text'
         placeholder='First Name'
         value={props.inputState.firstName}
@@ -47,6 +48,7 @@ const CreateDocForm: React.FunctionComponent<ICreateDocFormProps> = (props) => {
         }}
       ></input>
       <input
+        className='w-full border border-black rounded-md py-1 px-2'
         type='text'
         placeholder='Last Name'
         value={props.inputState.lastName}
@@ -56,6 +58,7 @@ const CreateDocForm: React.FunctionComponent<ICreateDocFormProps> = (props) => {
         }}
       ></input>
       <input
+        className='w-full border border-black rounded-md py-1 px-2'
         type='email'
         placeholder='Email'
         value={props.inputState.email}
@@ -65,6 +68,7 @@ const CreateDocForm: React.FunctionComponent<ICreateDocFormProps> = (props) => {
         }}
       ></input>
       <input
+        className='w-full border border-black rounded-md py-1 px-2'
         type='text'
         placeholder='City'
         value={props.inputState.city}
@@ -74,6 +78,7 @@ const CreateDocForm: React.FunctionComponent<ICreateDocFormProps> = (props) => {
         }}
       ></input>
       <input
+        className='w-full border border-black rounded-md py-1 px-2'
         type='text'
         placeholder='Facility'
         value={props.inputState.facility}
@@ -83,6 +88,7 @@ const CreateDocForm: React.FunctionComponent<ICreateDocFormProps> = (props) => {
         }}
       ></input>
       <select
+        className='w-full border border-black rounded-md py-1 px-2'
         value={props.inputState.areaOfExpertise}
         onChange={(e) => {
           props.setAreaOfExpertise(e.target.value as TAreaOfExpertise);

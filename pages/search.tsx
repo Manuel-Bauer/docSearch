@@ -2,8 +2,8 @@ import type { NextPage } from 'next';
 import type { TAreaOfExpertise } from '../utils/types/AreaOfExpertise.Type';
 import { useState } from 'react';
 import { getDoctors, deleteDoctor } from '../utils/apiService/doctorApi';
-import SearchDocForm from '../components/forms/SearchDoc.Form';
 import Header from '../components/structure/Header';
+import SearchDocForm from '../components/forms/SearchDoc.Form';
 import { Doctor } from '@prisma/client';
 import DoctorList from '../components/lists/Doctor.List';
 
@@ -58,6 +58,7 @@ const Search: NextPage = () => {
 
   return (
     <>
+      <Header text='DOCUNITED'></Header>
       <SearchDocForm
         inputState={{ city, facility, areaOfExpertise }}
         setCity={setCity}
