@@ -29,3 +29,9 @@ export async function getDoctors(item: {
   const data = await res.json();
   return data;
 }
+
+export async function deleteDoctor(id: string): Promise<Doctor> {
+  const res = await fetch(`api/doctor?id=${id}`, { method: 'DELETE' });
+  const data = await res.json();
+  return data;
+}

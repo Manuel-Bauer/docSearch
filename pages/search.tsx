@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { getDoctors } from '../utils/apiService/doctorApi';
 import SearchDocForm from '../components/forms/SearchDoc.Form';
 import Header from '../components/structure/Header';
-import { Prisma, Doctor } from '@prisma/client';
+import { Doctor } from '@prisma/client';
 import DoctorList from '../components/lists/Doctor.List';
 
 const Search: NextPage = () => {
@@ -22,11 +22,11 @@ const Search: NextPage = () => {
   /* LOADING STATES */
   const [searchLoading, setSearchLoading] = useState<boolean>(false);
 
-  /* FORM HANDLING */
+  /* SEARCH FORM HANDLING */
   async function handleSubmit() {
     setSearchLoading(true);
     try {
-      const doctors = await getDoctors({
+      const doctors: Doctor[] = await getDoctors({
         city,
         facility,
         areaOfExpertise,
