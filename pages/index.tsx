@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 import { useState } from 'react';
 import Link from 'next/link';
+import Header from '../components/structure/Header';
 
 export const Home: NextPage = () => {
   const [doctor, setDoctor] = useState({
@@ -28,9 +29,15 @@ export const Home: NextPage = () => {
 
   return (
     <div>
-      <header>docsearch</header>
-      <Link href='/create'>Add new Doctor</Link>
-      <Link href='/search'>Search for doctor</Link>
+      <Header text='docSearch'></Header>
+      <div className='flex-row justify-center align-center mt-40 space-y-10 mx-10'>
+        <div className='bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 py-1 px-2 rounded-md text-white text-center text-xl'>
+          <Link href='/create'>Add new Doctor</Link>
+        </div>
+        <div className='bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 py-1 px-2 rounded-md text-white text-center text-xl'>
+          <Link href='/search'>Search for doctor</Link>
+        </div>
+      </div>
     </div>
   );
 };

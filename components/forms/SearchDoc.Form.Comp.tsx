@@ -30,10 +30,11 @@ const areaOfExpertise = [
 
 const SearchDocForm: React.FunctionComponent<ISearchDocFormProps> = (props) => {
   return (
-    <div>
+    <div className='flex-row p-4 space-y-2'>
       <input
+        className='border border-black rounded-md py-1 px-2'
         type='text'
-        placeholder='City'
+        placeholder='Select city'
         value={props.inputState.city}
         onChange={(e) => {
           props.setCity(e.target.value as string);
@@ -41,6 +42,7 @@ const SearchDocForm: React.FunctionComponent<ISearchDocFormProps> = (props) => {
         }}
       ></input>
       <input
+        className='border border-black rounded-md py-1 px-2'
         type='text'
         placeholder='Facility'
         value={props.inputState.facility}
@@ -50,6 +52,7 @@ const SearchDocForm: React.FunctionComponent<ISearchDocFormProps> = (props) => {
         }}
       ></input>
       <select
+        className='border border-black rounded-md py-1 px-2'
         value={props.inputState.areaOfExpertise}
         onChange={(e) => {
           props.setAreaOfExpertise(e.target.value as TAreaOfExpertise);
@@ -64,11 +67,13 @@ const SearchDocForm: React.FunctionComponent<ISearchDocFormProps> = (props) => {
           );
         })}
       </select>
-      <Button
-        text='Search doctor'
-        disabled={props.isLoading}
-        callback={props.handleSubmit}
-      ></Button>
+      <div>
+        <Button
+          text='Search doctor'
+          disabled={props.isLoading}
+          callback={props.handleSubmit}
+        ></Button>
+      </div>
     </div>
   );
 };
