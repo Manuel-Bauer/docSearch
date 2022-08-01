@@ -1,10 +1,10 @@
-import type { NextPage } from 'next';
+import { NextPage } from 'next';
 import CreateDocForm from '../components/forms/CreateDoc.Form';
 import { useState } from 'react';
 import { createDoctor } from '../utils/apiService/doctorApi';
 import { TAreaOfExpertise } from '../utils/types/AreaOfExpertise.Type';
 
-export const Create: NextPage = () => {
+const Create: NextPage = () => {
   /* INPUT STATES */
   const [firstName, setFirstName] = useState<string>('');
   const [lastName, setLastName] = useState<string>('');

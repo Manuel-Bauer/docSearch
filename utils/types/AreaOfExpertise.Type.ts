@@ -3,4 +3,5 @@ export type TAreaOfExpertise =
   | 'Anesthesiology'
   | 'Colon and Rectal Surgery'
   | 'Dermatology'
-  | 'Emergency Medicine';
+  | 'Emergency Medicine'
+  | '';

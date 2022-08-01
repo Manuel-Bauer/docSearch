@@ -1,6 +1,4 @@
-import { Doctor } from '@prisma/client';
 import React, { Dispatch, SetStateAction } from 'react';
-import { checkServerIdentity } from 'tls';
 import { TAreaOfExpertise } from '../../utils/types/AreaOfExpertise.Type';
 import Button from '../buttons/Button';
 
@@ -92,7 +90,11 @@ const CreateDocForm: React.FunctionComponent<ICreateDocFormProps> = (props) => {
         }}
       >
         {areaOfExpertise.map((area) => {
-          return <option value={area}>{area}</option>;
+          return (
+            <option key={area} value={area}>
+              {area}
+            </option>
+          );
         })}
       </select>
       <Button

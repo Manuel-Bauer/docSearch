@@ -1,8 +1,5 @@
 import type { NextPage } from 'next';
-import Head from 'next/head';
 import { useState } from 'react';
-import Create from './create';
-import { useRouter } from 'next/router';
 import Link from 'next/link';
 
 export const Home: NextPage = () => {
@@ -31,7 +28,9 @@ export const Home: NextPage = () => {
 
   return (
     <div>
-      <Link href='/create'>Add New Doctor</Link>
+      <header>docsearch</header>
+      <Link href='/create'>Add new Doctor</Link>
+      <Link href='/search'>Search for doctor</Link>
     </div>
   );
 };

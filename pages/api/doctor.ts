@@ -7,13 +7,25 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  console.log('HAAADNLER');
   await prisma.$connect();
-  console.log('req.body', req.body);
   if (req.method === 'POST') {
     const doctor = req.body;
-    console.log('doctor', doctor);
     const createDoctor = await prisma.doctor.create({ data: doctor });
     return res.status(200).json(createDoctor);
+  }
+  if (req.method === 'GET') {
+    let filter = { where: { AND: {} } };
+
+    // Loop over query string and add filter where value is not undefined
+    for (const [key, value] of Object.entries(req.query)) {
+      if (value)
+        filter = {
+          where: { AND: { ...filter.where.AND, [key]: { contains: value } } },
+        };
+    }
+
+    const getDoctors = await prisma.doctor.findMany(filter);
+    console.log(getDoctors);
+    return res.status(200).json(getDoctors);
   }
 }
