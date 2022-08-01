@@ -22,6 +22,7 @@ interface ISearchDocFormProps {
 
 // For Select Dropdown
 const areaOfExpertise = [
+  'Select area of expertise',
   'Allergy and Immunology',
   'Anesthesiology',
   'Colon and Rectal Surgery',
@@ -35,7 +36,7 @@ const SearchDocForm: React.FunctionComponent<ISearchDocFormProps> = (props) => {
       <Header text='DOCUNITED'></Header>
       <div className='flex-row p-4 space-y-2'>
         <input
-          className='border border-black rounded-md py-1 px-2'
+          className='w-full border border-black rounded-md py-1 px-2'
           type='text'
           placeholder='Select city'
           value={props.inputState.city}
@@ -45,9 +46,9 @@ const SearchDocForm: React.FunctionComponent<ISearchDocFormProps> = (props) => {
           }}
         ></input>
         <input
-          className='border border-black rounded-md py-1 px-2'
+          className='w-full border border-black rounded-md py-1 px-2'
           type='text'
-          placeholder='Facility'
+          placeholder='Select facility'
           value={props.inputState.facility}
           onChange={(e) => {
             props.setFacility(e.target.value as string);
@@ -55,16 +56,26 @@ const SearchDocForm: React.FunctionComponent<ISearchDocFormProps> = (props) => {
           }}
         ></input>
         <select
-          className='border border-black rounded-md py-1 px-2'
+          className='w-full border border-black rounded-md py-1 px-2'
           value={props.inputState.areaOfExpertise}
           onChange={(e) => {
-            props.setAreaOfExpertise(e.target.value as TAreaOfExpertise);
+            if (e.target.value === 'Select area of expertise')
+              props.setAreaOfExpertise('');
+            else props.setAreaOfExpertise(e.target.value as TAreaOfExpertise);
             props.setError('');
           }}
         >
           {areaOfExpertise.map((area) => {
             return (
-              <option key={area} value={area}>
+              <option
+                className={
+                  area === 'Select area of expertise'
+                    ? 'text-gray-400'
+                    : 'text-black'
+                }
+                key={area}
+                value={area}
+              >
                 {area}
               </option>
             );
