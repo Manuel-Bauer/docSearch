@@ -6,7 +6,7 @@ interface IHeaderProps {
 
 const Header: React.FunctionComponent<IHeaderProps> = (props) => {
   return (
-    <div className='bg-violet-500 text-center text-lg text-white p-3'>
+    <div className='bg-white text-center text-3xl text-recunited uppercase p-3 font-bold tracking-widest'>
       {props.text}
     </div>
   );

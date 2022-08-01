@@ -2,7 +2,8 @@ import type { NextPage } from 'next';
 import type { TAreaOfExpertise } from '../utils/types/AreaOfExpertise.Type';
 import { useState } from 'react';
 import { getDoctors } from '../utils/apiService/doctorApi';
-import SearchDocForm from '../components/forms/SearchDoc.Form.Comp';
+import SearchDocForm from '../components/forms/SearchDoc.Form';
+import Header from '../components/structure/Header';
 import { Prisma, Doctor } from '@prisma/client';
 import DoctorList from '../components/lists/Doctor.List';
 

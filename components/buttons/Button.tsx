@@ -9,7 +9,7 @@ interface IButtonProps {
 const Button: React.FunctionComponent<IButtonProps> = (props) => {
   return (
     <button
-      className='bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 py-1 px-2 rounded-md text-white'
+      className='text-white bg-recunited hover:bg-recunitedLight py-1 px-2 rounded-md'
       onClick={() => !props.disabled && props.callback()}
     >
       {props.text}

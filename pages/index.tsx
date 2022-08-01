@@ -29,12 +29,12 @@ export const Home: NextPage = () => {
 
   return (
     <div>
-      <Header text='docSearch'></Header>
-      <div className='flex-row justify-center align-center mt-40 space-y-10 mx-10'>
-        <div className='bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 py-1 px-2 rounded-md text-white text-center text-xl'>
-          <Link href='/create'>Add new Doctor</Link>
+      <Header text='DOCUNITED'></Header>
+      <div className='flex-row justify-center align-center mt-20 space-y-10 mx-20'>
+        <div className='text-white text-center bg-recunited hover:bg-recunitedLight py-2 px-2 rounded-md'>
+          <Link href='/create'>Add new doctor</Link>
         </div>
-        <div className='bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 py-1 px-2 rounded-md text-white text-center text-xl'>
+        <div className='text-white text-center bg-recunited hover:bg-recunitedLight py-2 px-2 rounded-md'>
           <Link href='/search'>Search for doctor</Link>
         </div>
       </div>
