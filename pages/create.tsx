@@ -4,9 +4,9 @@ import Header from '../components/structure/Header';
 import { useState } from 'react';
 import { createDoctor } from '../utils/apiService/doctorApi';
 import { TAreaOfExpertise } from '../utils/types/AreaOfExpertise.Type';
-import validator from 'validator';
 import { IoIosArrowBack } from 'react-icons/io';
 import { useRouter } from 'next/router';
+import validator from 'validator';
 
 const Create: NextPage = () => {
   /* NAVIGATION */
@@ -112,11 +112,11 @@ const Create: NextPage = () => {
       <div className='text-xl text-recunited font-bold px-5'>
         {createSuccess}
       </div>
-      <div className='text-xl text-red font-bold px-5'>{createError}</div>
+      <div className='text-xl text-red-500 font-bold px-5'>{createError}</div>
       <div>
         <IoIosArrowBack
           onClick={() => router.back()}
-          className='absolute bottom-5 left-5'
+          className='absolute top-6 left-5'
         ></IoIosArrowBack>
       </div>
     </div>

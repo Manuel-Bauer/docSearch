@@ -20,7 +20,7 @@ export async function getDoctors(item: {
   city?: string;
   facility?: string;
   areaOfExpertise?: TAreaOfExpertise;
-}): Promise<Doctor> {
+}): Promise<Doctor[]> {
   //if id is provided, search with the help of the id, else use other params
   const res = await fetch(
     `api/doctor?city=${item.city}&facility=${item.facility}&areaOfExpertise=${item.areaOfExpertise}`,

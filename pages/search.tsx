@@ -31,7 +31,7 @@ const Search: NextPage = () => {
   async function handleSubmit() {
     setSearchLoading(true);
     try {
-      const doctors: Doctor[] = await getDoctors({
+      const doctors = await getDoctors({
         city,
         facility,
         areaOfExpertise,
@@ -74,10 +74,13 @@ const Search: NextPage = () => {
         error={searchError}
         isLoading={searchLoading}
       ></SearchDocForm>
-      <DoctorList doctors={doctors} handleDelete={handleDelete}></DoctorList>
+      {doctors && (
+        <DoctorList doctors={doctors} handleDelete={handleDelete}></DoctorList>
+      )}
+
       <IoIosArrowBack
         onClick={() => router.back()}
-        className='absolute bottom-5 left-5'
+        className='absolute top-6 left-5'
       ></IoIosArrowBack>
     </>
   );
