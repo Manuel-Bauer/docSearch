@@ -14,10 +14,8 @@ export default async function handler(
     return res.status(200).json(createDoctor);
   }
   if (req.method === 'GET') {
+    // Create dynamic filter
     let filter = { where: { AND: {} } };
-
-    console.log('req.query', typeof req.query.id);
-
     // Loop over query string and add filter where value is not undefined
     for (const [key, value] of Object.entries(req.query)) {
       if (value)
@@ -27,7 +25,6 @@ export default async function handler(
           },
         };
     }
-
     const getDoctors = await prisma.doctor.findMany(filter);
     return res.status(200).json(getDoctors);
   }
