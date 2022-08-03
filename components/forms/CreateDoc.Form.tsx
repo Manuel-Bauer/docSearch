@@ -7,8 +7,8 @@ interface IInputState {
   lastName: string;
   email: string;
   city: string;
-  areaOfExpertise: TAreaOfExpertise;
   facility: string;
+  areaOfExpertise: TAreaOfExpertise;
 }
 
 interface ICreateDocFormProps {
