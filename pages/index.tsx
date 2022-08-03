@@ -1,7 +1,5 @@
 /* NEXT IMPORTS */
 import type { NextPage } from 'next';
-/*REACT IMPORTS */
-import { useState } from 'react';
 /*COMPONENT IMPORTS */
 import Header from '../components/structure/Header';
 import Linked from '../components/structure/Linked';

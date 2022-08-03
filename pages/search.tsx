@@ -1,13 +1,19 @@
-import type { NextPage } from 'next';
-import type { TAreaOfExpertise } from '../utils/types/AreaOfExpertise.Type';
+/* NEXT IMPORTS */
+import { NextPage } from 'next';
+import { useRouter } from 'next/router';
+/* REACT IMPORTS */
 import { useState } from 'react';
-import { getDoctors, deleteDoctor } from '../utils/apiService/doctorApi';
+/* COMPONENT IMPORTS */
 import Header from '../components/structure/Header';
 import SearchDocForm from '../components/forms/SearchDoc.Form';
-import { Doctor } from '@prisma/client';
 import DoctorList from '../components/lists/Doctor.List';
+/* FUNCTION IMPORTS */
+import { getDoctors, deleteDoctor } from '../utils/apiService/doctorApi';
+/* TYPE IMPORTS */
+import { TAreaOfExpertise } from '../utils/types/AreaOfExpertise.Type';
+/* EXTERNAL IMPORTS */
+import { Doctor } from '@prisma/client';
 import { IoIosArrowBack } from 'react-icons/io';
-import { useRouter } from 'next/router';
 
 const Search: NextPage = () => {
   /* NAVIGATION */

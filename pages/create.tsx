@@ -1,12 +1,19 @@
+/* NEXT IMPORTS */
 import { NextPage } from 'next';
-import CreateDocForm from '../components/forms/CreateDoc.Form';
-import Header from '../components/structure/Header';
-import { useState } from 'react';
-import { createDoctor } from '../utils/apiService/doctorApi';
-import { TAreaOfExpertise } from '../utils/types/AreaOfExpertise.Type';
-import { IoIosArrowBack } from 'react-icons/io';
 import { useRouter } from 'next/router';
+/* REACT IMPORTS */
+import { useState } from 'react';
+/* COMPONENT IMPORTS */
+import Header from '../components/structure/Header';
+import CreateDocForm from '../components/forms/CreateDoc.Form';
+/* FUNCTION IMPORTS */
+import { createDoctor } from '../utils/apiService/doctorApi';
+/* TYPE IMPORTS */
+import { TAreaOfExpertise } from '../utils/types/AreaOfExpertise.Type';
+/* EXTERNAL IMPORTS */
+import { IoIosArrowBack } from 'react-icons/io';
 import validator from 'validator';
+
 
 const Create: NextPage = () => {
   /* NAVIGATION */
