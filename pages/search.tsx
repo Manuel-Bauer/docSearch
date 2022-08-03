@@ -42,6 +42,7 @@ const Search: NextPage = () => {
         facility,
         areaOfExpertise,
       });
+      if (doctors.length === 0) setSearchError('No doctors found.');
       setDoctors(doctors);
       setSearchLoading(false);
       setCity('');
@@ -70,6 +71,10 @@ const Search: NextPage = () => {
   return (
     <>
       <Header text='DOCUNITED'></Header>
+      <IoIosArrowBack
+        onClick={() => router.back()}
+        className='absolute top-6 left-5'
+      ></IoIosArrowBack>
       <SearchDocForm
         inputState={{ city, facility, areaOfExpertise }}
         setCity={setCity}
@@ -83,11 +88,7 @@ const Search: NextPage = () => {
       {doctors && (
         <DoctorList doctors={doctors} handleDelete={handleDelete}></DoctorList>
       )}
-
-      <IoIosArrowBack
-        onClick={() => router.back()}
-        className='absolute top-6 left-5'
-      ></IoIosArrowBack>
+      <div className='text-xl font-bold px-5'>{searchError}</div>
     </>
   );
 };

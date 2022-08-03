@@ -14,7 +14,6 @@ import { TAreaOfExpertise } from '../utils/types/AreaOfExpertise.Type';
 import { IoIosArrowBack } from 'react-icons/io';
 import validator from 'validator';
 
-
 const Create: NextPage = () => {
   /* NAVIGATION */
   const router = useRouter();
@@ -96,6 +95,10 @@ const Create: NextPage = () => {
   return (
     <div>
       <Header text='DOCUNITED'></Header>
+      <IoIosArrowBack
+        onClick={() => router.back()}
+        className='absolute top-6 left-5'
+      ></IoIosArrowBack>
       <CreateDocForm
         inputState={{
           firstName,
@@ -120,12 +123,7 @@ const Create: NextPage = () => {
         {createSuccess}
       </div>
       <div className='text-xl text-red-500 font-bold px-5'>{createError}</div>
-      <div>
-        <IoIosArrowBack
-          onClick={() => router.back()}
-          className='absolute top-6 left-5'
-        ></IoIosArrowBack>
-      </div>
+      <div></div>
     </div>
   );
 };
