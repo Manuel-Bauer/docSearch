@@ -6,8 +6,13 @@ import Header from '../components/structure/Header';
 import SearchDocForm from '../components/forms/SearchDoc.Form';
 import { Doctor } from '@prisma/client';
 import DoctorList from '../components/lists/Doctor.List';
+import { IoIosArrowBack } from 'react-icons/io';
+import { useRouter } from 'next/router';
 
 const Search: NextPage = () => {
+  /* NAVIGATION */
+  const router = useRouter();
+
   /* INPUT STATES */
   const [city, setCity] = useState<string>('');
   const [facility, setFacility] = useState<string>('');
@@ -70,6 +75,10 @@ const Search: NextPage = () => {
         isLoading={searchLoading}
       ></SearchDocForm>
       <DoctorList doctors={doctors} handleDelete={handleDelete}></DoctorList>
+      <IoIosArrowBack
+        onClick={() => router.back()}
+        className='absolute bottom-5 left-5'
+      ></IoIosArrowBack>
     </>
   );
 };

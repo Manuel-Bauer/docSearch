@@ -5,8 +5,13 @@ import { useState } from 'react';
 import { createDoctor } from '../utils/apiService/doctorApi';
 import { TAreaOfExpertise } from '../utils/types/AreaOfExpertise.Type';
 import validator from 'validator';
+import { IoIosArrowBack } from 'react-icons/io';
+import { useRouter } from 'next/router';
 
 const Create: NextPage = () => {
+  /* NAVIGATION */
+  const router = useRouter();
+
   /* INPUT STATES */
   const [firstName, setFirstName] = useState<string>('');
   const [lastName, setLastName] = useState<string>('');
@@ -108,6 +113,12 @@ const Create: NextPage = () => {
         {createSuccess}
       </div>
       <div className='text-xl text-red font-bold px-5'>{createError}</div>
+      <div>
+        <IoIosArrowBack
+          onClick={() => router.back()}
+          className='absolute bottom-5 left-5'
+        ></IoIosArrowBack>
+      </div>
     </div>
   );
 };
