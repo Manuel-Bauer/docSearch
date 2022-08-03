@@ -1,7 +1,6 @@
 import React, { Dispatch, SetStateAction } from 'react';
 import { TAreaOfExpertise } from '../../utils/types/AreaOfExpertise.Type';
 import Button from '../buttons/Button';
-import Header from '../structure/Header';
 
 interface IInputState {
   city: string;
@@ -14,8 +13,8 @@ interface ISearchDocFormProps {
   setCity: Dispatch<SetStateAction<string>>;
   setFacility: Dispatch<SetStateAction<string>>;
   setAreaOfExpertise: Dispatch<SetStateAction<TAreaOfExpertise>>;
-  handleSubmit: () => Promise<void>;
   setError: Dispatch<SetStateAction<string>>;
+  handleSubmit: () => Promise<void>;
   error: string;
   isLoading: boolean;
 }

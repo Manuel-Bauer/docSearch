@@ -19,9 +19,9 @@ interface ICreateDocFormProps {
   setCity: Dispatch<SetStateAction<string>>;
   setFacility: Dispatch<SetStateAction<string>>;
   setAreaOfExpertise: Dispatch<SetStateAction<TAreaOfExpertise>>;
-  handleSubmit: () => Promise<void>;
   setError: Dispatch<SetStateAction<string>>;
   setSuccess: Dispatch<SetStateAction<string>>;
+  handleSubmit: () => Promise<void>;
   isLoading: boolean;
 }
 
